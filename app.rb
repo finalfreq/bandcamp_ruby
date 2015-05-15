@@ -39,7 +39,7 @@ end
 
 post '/bands/:id' do
   @band = Band.find(params['id'])
-  if params['id'] != ''
+  if params['venue_ids'] != nil
     venues = Venue.find(params['venue_ids'])
     venues.each do |venue|
       @band.venues.push(venue)
@@ -75,7 +75,7 @@ end
 
 post '/venues/:id' do
   @venue = Venue.find(params['id'])
-  if params['id'] != ''
+  if params['band_ids'] != nil
     bands = Band.find(params['band_ids'])
     bands.each do |band|
       @venue.bands.push(band)
