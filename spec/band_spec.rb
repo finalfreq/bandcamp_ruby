@@ -13,5 +13,4 @@ describe Band do
     band = Band.new(name: '')
     expect(band.save).to(eq(false))
   end
-
 end
