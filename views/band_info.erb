@@ -32,8 +32,7 @@
 </div>
 <div class="col-md-6">
 <% if @venues.any? %>
-
-
+  <% unless @band.venues.length == @venues.length %>
   <p class="lead"> For any venues not presently listed that should be please add them here:</p>
   <form action="/bands/<%= @band.id %>" method="post">
     <% @venues.each do |venue| %>
@@ -47,7 +46,7 @@
   <% end %>
   <button name="add_venues" type='submit' class="btn btn-success">Add Venues</button>
   </form>
-
+<% end %>
 <% else %>
 
 <p>It appears no venues have been added yet feel free to <a href="/venues">add a venue</a>.</p>
