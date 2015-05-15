@@ -9,14 +9,15 @@ before do
 end
 
 get '/' do
-
+  erb(:index)
 end
 
 get '/bands' do
 
-
+  erb(:bands)
 end
 
 get '/bands/:id' do
 
+  erb(:band_info)
 end

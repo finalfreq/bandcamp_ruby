@@ -1,0 +1,35 @@
+<h1 class="page-header text-center">Welcome to Bandcamp</h1>
+
+<p class="lead"> Bandcamp is a place where you can add, update, and remove your favorite artists.
+  not only can you work with your favorite artists but also can add your favorite venues.
+</p>
+<% if @bands.any? %>
+  <p> Here is a list of current bands we have listed:
+    <ul>
+      <% @bands.each do |band| %>
+      <li><a href="/bands/<%= band.id %>"> <%= band.name%> </a></li>
+      <% end %>
+    </ul>
+
+  </p>
+
+<% else %>
+
+  <p>It appears no bands have been added yet feel free to <a href="/bands">add a band</a>.</p>
+
+<% end %>
+
+<% if @venues.any? %>
+  <p> Here is a list of current venues we have listed:
+    <ul>
+      <% @venues.each do |venue| %>
+      <li><a href="/venue/<%= venue.id %>"> <%= venue.name%> </a></li>
+      <% end %>
+    </ul>
+  </p>
+
+<% else %>
+
+  <p>It appears no venues have been added yet feel free to <a href="/bands">add a venue</a>.</p>
+
+<% end %>
