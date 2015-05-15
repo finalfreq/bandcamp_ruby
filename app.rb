@@ -30,3 +30,14 @@ get '/bands/:id' do
   @band = Band.find(params['id'])
   erb(:band_info)
 end
+
+patch '/bands/:id' do
+  @band = Band.find(params['id'])
+  @band.update(name: params['new_name'])
+  redirect to "/bands/#{@band.id}"
+end
+
+delete  '/bands/:id/' do
+  Band.delete(params['id'])
+  redirect to '/bands'
+end
