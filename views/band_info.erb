@@ -1,6 +1,7 @@
 <h1 class="page-header text-center">Welcome to <%= @band.name %>'s page</h1>
 
 <h3>Sometimes change is necessary to keep a modern feel. Change band name below:</h3>
+<br>
 <form class="form-inline"action="/bands/<%= @band.id %>" method="post">
   <input required type="hidden" name="_method" value="patch">
   <div class="form-group"
@@ -15,6 +16,8 @@
     <button type="submit" class="btn btn-danger">Destroy Band</button>
   </form>
 </div>
+<br>
+<div class="col-md-6">
 <% if @band.venues.any? %>
 
 <p class="lead"> We are excited to say <%= @band.name %> has played at the following venues:
@@ -26,8 +29,10 @@
 </p>
 
 <% end %>
-
+</div>
+<div class="col-md-6">
 <% if @venues.any? %>
+
 
   <p class="lead"> For any venues not presently listed that should be please add them here:</p>
   <form action="/bands/<%= @band.id %>" method="post">
@@ -49,3 +54,4 @@
 
 
 <% end %>
+</div>

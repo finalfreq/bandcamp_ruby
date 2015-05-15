@@ -37,6 +37,16 @@ patch '/bands/:id' do
   redirect to "/bands/#{@band.id}"
 end
 
+post '/bands/:id' do
+  @band = Band.find(params['id'])
+  venues = Venue.find(params['venue_ids'])
+  venues.each do |venue|
+    @band.venues.push(venue)
+  end
+  redirect to "/bands/#{@band.id}"
+end
+
+
 delete  '/bands/:id/' do
   Band.delete(params['id'])
   redirect to '/bands'
@@ -54,4 +64,18 @@ post '/venues' do
   else
     erb(:errors)
   end
+end
+
+get '/venues/:id' do
+  @venue = Venue.find(params['id'])
+  erb(:venue_info)
+end
+
+post '/venues/:id' do
+  @venue = Venue.find(params['id'])
+  bands = Band.find(params['band_ids'])
+  bands.each do |band|
+    @venue.bands.push(band)
+  end
+  redirect to "/venues/#{@venue.id}"
 end

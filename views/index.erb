@@ -3,6 +3,8 @@
 <p class="lead"> Bandcamp is a place where you can add, update, and remove your favorite artists.
   not only can you work with your favorite artists but also can add your favorite venues.
 </p>
+<div class="wrap">
+<div class="col-md-4">
 <% if @bands.any? %>
   <p> Here is a list of current bands we have listed:
     <ul>
@@ -18,12 +20,16 @@
   <p>It appears no bands have been added yet feel free to <a href="/bands">add a band</a>.</p>
 
 <% end %>
+<a href="/bands" class="btn btn-info btn-lg" role="button">Add and View Bands</a>
+
+</div>
+<div class="col-md-4">
 
 <% if @venues.any? %>
   <p> Here is a list of current venues we have listed:
     <ul>
       <% @venues.each do |venue| %>
-      <li><a href="/venue/<%= venue.id %>"> <%= venue.name%> </a></li>
+      <li><a href="/venues/<%= venue.id %>"> <%= venue.name%> </a></li>
       <% end %>
     </ul>
   </p>
@@ -33,3 +39,7 @@
   <p>It appears no venues have been added yet feel free to <a href="/venues">add a venue</a>.</p>
 
 <% end %>
+<a href="/venues" class="btn btn-success btn-lg" role="button">Add and View Venues</a>
+
+</div>
+</div>

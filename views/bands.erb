@@ -2,12 +2,12 @@
 
 <form class="" action="/bands" method="post">
   <div class="form-group">
-    <label for="band_name">Name of Band</label>
-    <input required type="text" name="band_name" class="form-control">
+    <label for="band_name">Add Band</label>
+    <input autofocus required type="text" name="band_name" class="form-control">
   </div>
-  <button type="submit" class="btn btn-primary">Add Band</button>
+  <button type="submit" class="btn btn-success btn-md">Add Band</button>
 </form>
-
+<br>
 <% if @bands.any? %>
   <p class="lead"> Current Rockstars:
     <ul>
