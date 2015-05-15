@@ -1,0 +1,10 @@
+#delete {
+  float: inherit;
+  padding: 5;
+  margin: 0.3em;
+  display: inline;
+}
+
+form {
+    display: inline;
+}

@@ -41,3 +41,17 @@ delete  '/bands/:id/' do
   Band.delete(params['id'])
   redirect to '/bands'
 end
+
+get '/venues' do
+  erb(:venues)
+end
+
+post '/venues' do
+  venue_name = params['venue_name']
+  @venue = Venue.new(name: venue_name)
+  if @venue.save
+    redirect to '/venues'
+  else
+    erb(:errors)
+  end
+end

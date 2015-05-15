@@ -1,1 +1,23 @@
-<h1 class="page-header text-center"></h1>
+<h1 class="page-header text-center">Houses of Rock</h1>
+
+<form action="/venues" method="post">
+  <div class="form-group">
+    <label for="venue_name">Name of Venue</label>
+    <input required type="text" name="venue_name" class="form-control">
+  </div>
+  <button type="submit" class="btn btn-primary">Add Venue</button>
+</form>
+
+<% if @venues.any? %>
+  <p class="lead"> Current Houses of Rock:
+    <ul>
+      <% @venues.each do |venue| %>
+      <li><a href="/venues/<%= venue.id %>"> <%= venue.name%> </a></li>
+      <% end %>
+    </ul>
+  </p>
+
+<% else %>
+  <p class="lead"> Currently no venue aquired, please add venue using above form</p>
+
+<% end %>
