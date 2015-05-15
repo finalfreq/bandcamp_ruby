@@ -1,1 +1,8 @@
-<h1 class="page-header text-center"></h1>
+<h1 class="page-header text-center">Welcome to <%= @band.name %>'s page</h1>
+
+<p class="lead"> We are excited to say <%= @band.name %> has played at the following venues:
+  <ul>
+    <% @band.venues.each do |venue| %>
+    <li><a href="/venues/<%= venue.id %>"><%= venue.name %></a></li>
+  </ul>
+</p>

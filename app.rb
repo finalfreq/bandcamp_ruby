@@ -18,15 +18,15 @@ end
 
 post '/bands' do
   band_name = params['band_name']
-  band = Band.new(name: band_name)
-  if band.save
-    erb(:bands)
+  @band = Band.new(name: band_name)
+  if @band.save
+    redirect to '/bands'
   else
     erb(:errors)
   end
 end
 
 get '/bands/:id' do
-
+  @band = Band.find(params['id'])
   erb(:band_info)
 end
