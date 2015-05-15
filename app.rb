@@ -47,7 +47,7 @@ post '/bands/:id' do
 end
 
 
-delete  '/bands/:id/' do
+delete '/bands/:id' do
   Band.delete(params['id'])
   redirect to '/bands'
 end
