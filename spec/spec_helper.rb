@@ -13,19 +13,19 @@ require('./app')
 
 RSpec.configure do |config|
   config.before(:each) do
-    Ingredient.all().each() do |ingredient|
-      ingredient.destroy()
+    Band.all().each() do |band|
+      band.destroy()
     end
-    Recipe.all().each() do |recipe|
-      recipe.destroy()
+    Venue.all().each() do |venue|
+      venue.destroy()
     end
   end
   config.after(:each) do
-    Ingredient.all().each() do |ingredient|
-      ingredient.destroy()
+    Band.all().each() do |band|
+      band.destroy()  
     end
-    Recipe.all().each() do |recipe|
-      recipe.destroy()
+    Venue.all().each() do |venue|
+      venue.destroy()
     end
   end
 end
