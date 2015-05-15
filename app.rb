@@ -13,8 +13,17 @@ get '/' do
 end
 
 get '/bands' do
-
   erb(:bands)
+end
+
+post '/bands' do
+  band_name = params['band_name']
+  band = Band.new(name: band_name)
+  if band.save
+    erb(:bands)
+  else
+    erb(:errors)
+  end
 end
 
 get '/bands/:id' do

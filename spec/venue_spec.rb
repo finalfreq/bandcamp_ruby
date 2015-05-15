@@ -1,12 +1,16 @@
 require 'spec_helper'
 
-describe Band do
+describe Venue do
 
-  it {should have_and_belong_to_many :venues }
+  it {should have_and_belong_to_many :bands }
 
   it 'will change the name to title case when saved' do
-    band = Band.create(name: "biG fiSH")
-    expect(band.name).to(eq("Big Fish"))
+    venue = Venue.create(name: "the gorge")
+    expect(venue.name).to(eq("The Gorge"))
   end
 
+  it 'validates if a name was entered' do
+    venue = Venue.new(name: '')
+    expect(venue.save).to(eq(false))
+  end
 end

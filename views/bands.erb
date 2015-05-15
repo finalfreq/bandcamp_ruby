@@ -1,0 +1,24 @@
+<h1 class="page-header text-center"> Rockstars </h1>
+
+<form class="" action="index.html" method="post">
+  <div class="form-group">
+    <label for="band_name">Name of Band</label>
+    <input required type="text" name="band_name" class="form-control">
+  </div>
+  <button type="submit" class="btn btn-primary">Add Artist</button>
+</form>
+
+<% if @bands.any? %>
+  <p class="lead"> Current Rockstars:
+    <ul>
+      <% @bands.each do |band| %>
+      <li><a href="/bands/<%= band.id %>"> <%= band.name%> </a></li>
+      <% end %>
+    </ul>
+  </p>
+
+<% else %>
+
+  <p class="lead"> Currently no talent aquired, please add talent using above form</p>
+
+<% end %>
