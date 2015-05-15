@@ -18,7 +18,7 @@ h1,
   font-weight: bold;
   margin-top: 0;
   padding-bottom: 1em;
-  background-color: rgba(81, 104, 105, 0.89);
+  background-color: rgba(190, 200, 148, 0.59);
   font-family: monospace;
 }
 
@@ -37,3 +37,7 @@ body
    margin-top: 1em;
 
  }
+.btn {
+  color: rgba(255, 255, 255, 0.87);
+  font-weight: bold;
+}
