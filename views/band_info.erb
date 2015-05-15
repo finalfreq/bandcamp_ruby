@@ -1,8 +1,36 @@
 <h1 class="page-header text-center">Welcome to <%= @band.name %>'s page</h1>
 
+<% if @band.venues.any? %>
+
 <p class="lead"> We are excited to say <%= @band.name %> has played at the following venues:
   <ul>
     <% @band.venues.each do |venue| %>
     <li><a href="/venues/<%= venue.id %>"><%= venue.name %></a></li>
+    <% end %>
   </ul>
 </p>
+
+<% end %>
+
+<% if @venues.any? %>
+
+  <p class="lead"> For any venues not presently listed that should be please add them here:</p>
+  <form action="/bands/<%= @band.id %>" method="post">
+    <% @venues.each do |venue| %>
+      <% unless @band.venues.include?(venue) %>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="venue_ids[]" value="<%= venue.id %>"> <%= venue.name %>
+        </label>
+      </div>
+    <% end %>
+  <% end %>
+  <button name="add_venues" type='submit' class="btn btn-success">Add Venues</button>
+  </form>
+
+<% else %>
+
+<p>It appears no venues have been added yet feel free to <a href="/venues">add a venue</a>.</p>
+
+
+<% end %>
