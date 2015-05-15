@@ -4,7 +4,7 @@ describe 'venue creation and update process', type: :feature do
 
   it 'has a link to all venues page from home page' do
     visit '/'
-    click_on 'add a venue'
+    click_on 'Add and View Venues'
     expect(page).to have_content('Houses of Rock')
   end
 

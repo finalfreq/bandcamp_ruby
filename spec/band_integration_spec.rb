@@ -4,7 +4,7 @@ describe 'band creation and update process', type: :feature do
 
   it 'has a link to all bands page from home page' do
     visit '/'
-    click_on 'add a band'
+    click_on 'Add and View Bands'
     expect(page).to have_content('Rockstars')
   end
 

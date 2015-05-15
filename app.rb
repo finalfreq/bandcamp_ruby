@@ -1,6 +1,6 @@
 require("bundler/setup")
 Bundler.require(:default)
-
+require 'pry'
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 
 before do
@@ -39,7 +39,7 @@ end
 
 post '/bands/:id' do
   @band = Band.find(params['id'])
-  unless params['venue_ids'] = ''
+  if params['id'] != ''
     venues = Venue.find(params['venue_ids'])
     venues.each do |venue|
       @band.venues.push(venue)
@@ -75,7 +75,7 @@ end
 
 post '/venues/:id' do
   @venue = Venue.find(params['id'])
-  unless params['band_ids'] = ''
+  if params['id'] != ''
     bands = Band.find(params['band_ids'])
     bands.each do |band|
       @venue.bands.push(band)
