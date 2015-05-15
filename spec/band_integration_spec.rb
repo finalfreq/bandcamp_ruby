@@ -29,4 +29,13 @@ describe 'band creation and update process', type: :feature do
     click_on 'Destroy Band'
     expect(page).to have_no_content('Final Frequency')
   end
+
+  it 'can add a venue to band' do
+    band = Band.create(name:"final frequency")
+    venue = Venue.create(name:"the gorge")
+    visit "/bands/#{band.id}"
+    check "#{venue.name}"
+    click_on "Add Venues"
+    expect(page).to have_content('We are excited to say Final Frequency has played at the following venues: The Gorge')
+  end
 end

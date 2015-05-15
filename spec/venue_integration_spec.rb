@@ -14,4 +14,13 @@ describe 'venue creation and update process', type: :feature do
     click_on 'Add Venue'
     expect(page).to have_content('The Gorge')
   end
+
+  it 'can add bands to venue from venue page' do
+    band = Band.create(name:"final frequency")
+    venue = Venue.create(name:"the gorge")
+    visit "/venues/#{venue.id}"
+    check "#{band.name}"
+    click_on "Add Bands"
+    expect(page).to have_content('The Gorge has had the pleasure of bringing the following bands: Final Frequency ')
+  end
 end
